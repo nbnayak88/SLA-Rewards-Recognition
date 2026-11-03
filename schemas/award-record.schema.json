@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SuccessLabs privacy-safe award record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "award_id",
+    "award_code",
+    "recipient_display_name",
+    "status",
+    "mission"
+  ],
+  "properties": {
+    "award_id": {
+      "type": "string",
+      "pattern": "^SLA-(SB|SP|SPR|SA|SC|SV|SL)-[0-9]{4}-[0-9]{4,}$"
+    },
+    "award_code": {
+      "type": "string",
+      "enum": [
+        "SB",
+        "SP",
+        "SPR",
+        "SA",
+        "SC",
+        "SV",
+        "SL"
+      ]
+    },
+    "recipient_display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "under_review",
+        "approved",
+        "issued",
+        "revoked"
+      ]
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "pathway_code": {
+      "type": "string"
+    },
+    "achievement_summary": {
+      "type": "string"
+    },
+    "engagement_classification": {
+      "type": "string",
+      "enum": [
+        "real",
+        "simulated",
+        "mixed"
+      ]
+    },
+    "award_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "consent_to_publish": {
+      "type": "boolean"
+    },
+    "mission": {
+      "const": "Architecting Experiences for a Better World"
+    }
+  }
+}
